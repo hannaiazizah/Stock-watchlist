@@ -16,6 +16,7 @@ object Modules {
     val repository = ":data:repository"
 
     val featureLogin = ":feature_login"
+    val featureWatchlist = ":feature_watchlist"
 }
 
 object Releases {
@@ -54,6 +55,7 @@ object Versions {
     val mockk = "1.11.0"
     val fragmentTest = "1.1.0-alpha06"
     val databinding = "3.3.2"
+    val paging = "3.1.1"
 }
 
 object Libraries {
@@ -71,6 +73,8 @@ object Libraries {
     val httpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
     // GLIDE
     val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    // PAGING
+    val paging = "androidx.paging:paging-runtime:${Versions.paging}"
 }
 
 object KotlinLibraries {
