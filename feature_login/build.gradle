@@ -1,0 +1,9 @@
+apply plugin: 'com.android.library'
+apply from: '../android_feature_dependencies.gradle'
+apply plugin: 'kotlin-kapt'
+
+android {
+    buildFeatures {
+        dataBinding true
+    }
+}

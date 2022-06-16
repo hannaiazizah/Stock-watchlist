@@ -3,6 +3,7 @@ apply from: '../android_commons.gradle'
 
 dependencies {
     implementation AndroidLibraries.appCompat
+    implementation AndroidLibraries.lifecycleExtensions
     implementation AndroidLibraries.navigation
     implementation AndroidLibraries.navigationFrag
     implementation project(Modules.navigation)
