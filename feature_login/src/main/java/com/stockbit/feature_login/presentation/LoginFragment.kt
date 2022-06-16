@@ -21,4 +21,9 @@ class LoginFragment: BaseFragment() {
         _binding = LoginFragmentBinding.inflate(inflater)
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_login"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:name="com.stockbit.feature_login.presentation.LoginFragment"
+        android:id="@+id/loginFragment"/>
+
+</navigation>
