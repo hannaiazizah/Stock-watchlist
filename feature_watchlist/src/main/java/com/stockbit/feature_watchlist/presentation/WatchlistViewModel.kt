@@ -16,12 +16,14 @@ class WatchlistViewModel(
     private val appDispatchers: AppDispatchers
 ): BaseViewModel() {
 
-    lateinit var pagingDataFlow: Flow<PagingData<Watchlist>>
-    fun getWatchlist() {
-        viewModelScope.launch(appDispatchers.io) {
-            pagingDataFlow = watchlistRepository.getWatchlist()
-                .distinctUntilChanged()
-                .cachedIn(viewModelScope)
-        }
+    val pagingDataFlow: Flow<PagingData<Watchlist>>
+
+    init {
+        pagingDataFlow = getWatchlist()
     }
+
+    private fun getWatchlist(): Flow<PagingData<Watchlist>> = watchlistRepository.getWatchlist()
+        .distinctUntilChanged()
+        .cachedIn(viewModelScope)
+
 }

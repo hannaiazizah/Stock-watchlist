@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="32dp">
+        android:padding="20dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -19,6 +19,7 @@
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/layout_refresh"
+            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -26,7 +27,6 @@
                 android:id="@+id/list_crypto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/watchlist_item" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

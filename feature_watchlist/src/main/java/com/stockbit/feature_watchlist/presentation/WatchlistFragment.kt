@@ -27,10 +27,12 @@ class WatchlistFragment: BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.listCrypto.adapter = adapter
-        viewModel.getWatchlist()
 
         lifecycleScope.launchWhenResumed {
-            viewModel.pagingDataFlow.collectLatest(adapter::submitData)
+            viewModel.pagingDataFlow.collectLatest {
+                binding.layoutRefresh.isRefreshing = false
+                adapter.submitData(it)
+            }
         }
 
         binding.layoutRefresh.setOnRefreshListener{

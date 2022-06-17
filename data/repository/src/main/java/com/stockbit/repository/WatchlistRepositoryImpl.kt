@@ -22,7 +22,7 @@ class WatchlistRepositoryImpl (
         const val NETWORK_PAGE_SIZE = 30
     }
 
-    override suspend fun getWatchlist(): Flow<PagingData<Watchlist>> {
+    override fun getWatchlist(): Flow<PagingData<Watchlist>> {
         val pagingSourceFactory = { watchlistDao.getWatchlist() }
 
         @OptIn(ExperimentalPagingApi::class)

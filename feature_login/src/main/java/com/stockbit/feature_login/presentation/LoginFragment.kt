@@ -30,11 +30,11 @@ class LoginFragment: BaseFragment() {
         binding.btnLogin.setOnClickListener {
             if (binding.edtUsername.editableText.toString().isEmpty()) {
                 binding.edtUsername.error = "Username is empty"
+            } else if (binding.edtInputPassword.editableText.toString().isEmpty()) {
+                binding.edtInputPassword.error = "Password is empty"
+            } else {
+                (requireActivity() as ToFlowNavigatable).navigateToFlow(NavigationFlow.WatchlistFlow)
             }
-            if (binding.edtPassword.editText?.toString().isNullOrEmpty()) {
-                binding.edtPassword.error = "Password is empty"
-            }
-            (requireActivity() as ToFlowNavigatable).navigateToFlow(NavigationFlow.WatchlistFlow)
         }
     }
 }
