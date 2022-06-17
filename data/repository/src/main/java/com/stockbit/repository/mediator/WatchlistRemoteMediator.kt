@@ -12,10 +12,7 @@ import com.stockbit.local.dao.WatchlistDao
 import com.stockbit.model.RemoteKeys
 import com.stockbit.model.Watchlist
 import com.stockbit.remote.WatchlistService
-import com.stockbit.repository.AppDispatchers
 import java.io.IOException
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
 
 @ExperimentalPagingApi
 class WatchlistRemoteMediator(
@@ -35,7 +32,7 @@ class WatchlistRemoteMediator(
         val page = when (loadType) {
             LoadType.REFRESH -> {
                 val remoteKeys = getRemoteKeyClosestToCurrentPosition(state)
-                remoteKeys?.nextKey ?: 0
+                remoteKeys?.nextKey?.minus(1) ?: 0
             }
             LoadType.PREPEND -> {
                 val remoteKeys = getRemoteKeyForFirstItem(state)
@@ -86,18 +83,25 @@ class WatchlistRemoteMediator(
                     id = it.coinInfo.id.toLong(),
                     symbol = it.coinInfo.symbol,
                     name = it.coinInfo.description,
-                    change = it.rawInfo.detailInfo.change.toChange(),
-                    changepct = it.rawInfo.detailInfo.changePercentage.toPercentage(),
-                    price = it.rawInfo.detailInfo.price.toCurrency()
+                    change = it.rawInfo?.detailInfo?.change?.toChange() ?: "-",
+                    changepct = it.rawInfo?.detailInfo?.changePercentage?.toPercentage() ?: "-",
+                    price = it.rawInfo?.detailInfo?.price?.toCurrency() ?: "-",
+                    changeAmount = it.rawInfo?.detailInfo?.change ?: 0.0
                 )
             }
 
-            keys?.let { remoteKeysDao.save(it) }
-            watchlist?.let { watchlistDao.save(it) }
+            keys?.let {
+                remoteKeysDao.save(it)
+            }
+            watchlist?.let {
+                watchlistDao.save(it)
+            }
             return MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
         } catch (exception: IOException) {
+            println(exception.localizedMessage)
             return MediatorResult.Error(exception)
         } catch (exception: Exception) {
+            println(exception.localizedMessage)
             return MediatorResult.Error(exception)
         }
     }

@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class DataInfo (
     @SerializedName("CoinInfo") val coinInfo: CoinInfo,
-    @SerializedName("RAW") val rawInfo: RawInfo
+    @SerializedName("RAW") val rawInfo: RawInfo?
 )
 
 data class CoinInfo(
@@ -20,5 +20,5 @@ data class DetailInfo(
 )
 
 data class RawInfo(
-    @SerializedName("USD") val detailInfo: DetailInfo
+    @SerializedName("USD") val detailInfo: DetailInfo?
 )

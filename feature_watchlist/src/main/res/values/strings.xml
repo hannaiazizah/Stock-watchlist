@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="title_crypto_watchlist">Crypto Watchlist</string>
+    <string name="no_data_available">No data available</string>
+    <string name="error_happen">Oops, error happen! Please try again</string>
 </resources>

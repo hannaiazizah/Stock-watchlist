@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import com.stockbit.common.base.BaseFragment
 import com.stockbit.common.base.BaseViewModel
 import com.stockbit.feature_watchlist.databinding.WatchlistFragmentBinding
@@ -29,14 +31,24 @@ class WatchlistFragment: BaseFragment() {
         binding.listCrypto.adapter = adapter
 
         lifecycleScope.launchWhenResumed {
-            viewModel.pagingDataFlow.collectLatest {
-                binding.layoutRefresh.isRefreshing = false
-                adapter.submitData(it)
-            }
+            viewModel.pagingDataFlow.collectLatest(adapter::submitData)
         }
 
         binding.layoutRefresh.setOnRefreshListener{
             adapter.refresh()
+        }
+
+        adapter.addLoadStateListener {
+            // show a retry button outside the list when refresh hits an error
+            binding.txtErrorState.isVisible = it.refresh is LoadState.Error
+
+            // swipeRefreshLayout displays whether refresh is occurring
+            binding.layoutRefresh.isRefreshing = it.refresh is LoadState.Loading
+
+            // show an empty state over the list when loading initially, before items are loaded
+            binding.txtEmptyState.isVisible = it.refresh is LoadState.Loading && adapter.itemCount == 0
+
+            binding.listCrypto.isVisible = adapter.itemCount > 0
         }
     }
 }

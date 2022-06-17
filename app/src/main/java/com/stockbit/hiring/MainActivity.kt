@@ -10,9 +10,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.stockbit.navigation.NavigationFlow
 import com.stockbit.navigation.Navigator
 import com.stockbit.navigation.ToFlowNavigatable
+import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity(), ToFlowNavigatable {
-    private val navigator: Navigator = Navigator()
+    private val navigator: Navigator by inject()
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
 

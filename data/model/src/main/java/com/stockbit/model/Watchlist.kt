@@ -11,5 +11,6 @@ data class Watchlist(
     val name: String,
     val price: String,
     val change: String,
+    val changeAmount: Double,
     val changepct: String
 )

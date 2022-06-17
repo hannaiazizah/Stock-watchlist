@@ -3,6 +3,9 @@ apply from: '../android_commons.gradle'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
 dependencies {
+    // KOIN
+    implementation Libraries.koin
+    // NAVIGATION
     implementation AndroidLibraries.navigation
     implementation AndroidLibraries.navigationFrag
 }

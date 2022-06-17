@@ -36,20 +36,21 @@ class WatchlistAdapter: PagingDataAdapter<Watchlist, WatchlistAdapter.ViewHolder
             symbol.text = watchlist.symbol
             desc.text = watchlist.name
             price.text = watchlist.price
-            change.text = "${watchlist.change} (${watchlist.changepct})"
-            if (watchlist.change.toDouble() > 0) {
+            change.text = "$${watchlist.change} (${watchlist.changepct})"
+            if (watchlist.changeAmount < 0) {
                 change.setTextColor(ContextCompat.getColor(view.context, R.color.red))
-            } else {
+            } else if (watchlist.change != "-") {
                 change.setTextColor(ContextCompat.getColor(view.context, R.color.light_green))
+            } else {
+                change.setTextColor(ContextCompat.getColor(view.context, R.color.onyx))
             }
         }
     }
 
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Watchlist>() {
-            override fun areItemsTheSame(oldItem: Watchlist, newItem: Watchlist): Boolean {
-                return (oldItem.id == newItem.id) && (oldItem.price == newItem.price)
-            }
+            override fun areItemsTheSame(oldItem: Watchlist, newItem: Watchlist): Boolean =
+                oldItem.id == newItem.id
 
             override fun areContentsTheSame(oldItem: Watchlist, newItem: Watchlist): Boolean =
                 oldItem == newItem
