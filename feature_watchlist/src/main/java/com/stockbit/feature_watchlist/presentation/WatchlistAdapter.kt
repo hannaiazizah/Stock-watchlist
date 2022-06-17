@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -36,6 +37,11 @@ class WatchlistAdapter: PagingDataAdapter<Watchlist, WatchlistAdapter.ViewHolder
             desc.text = watchlist.name
             price.text = watchlist.price
             change.text = "${watchlist.change} (${watchlist.changepct})"
+            if (watchlist.change.toDouble() > 0) {
+                change.setTextColor(ContextCompat.getColor(view.context, R.color.red))
+            } else {
+                change.setTextColor(ContextCompat.getColor(view.context, R.color.light_green))
+            }
         }
     }
 

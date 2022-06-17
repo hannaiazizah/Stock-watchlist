@@ -19,9 +19,9 @@
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/layout_refresh"
-            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/list_crypto"
@@ -30,7 +30,5 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/watchlist_item" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
     </androidx.appcompat.widget.LinearLayoutCompat>
-
 </layout>

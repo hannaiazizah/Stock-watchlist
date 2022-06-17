@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), ToFlowNavigatable {
     private fun configureNavController() {
         navController = findNavController(R.id.nav_host_fragment)
         appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+//        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
     override fun navigateToFlow(flow: NavigationFlow) {

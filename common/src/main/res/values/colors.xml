@@ -7,4 +7,6 @@
     <color name="white">#FFFFFF</color>
     <color name="onyx">#353935</color>
     <color name="green">#40826D</color>
+    <color name="light_green">#0BDA51</color>
+    <color name="red">#FF4433</color>
 </resources>

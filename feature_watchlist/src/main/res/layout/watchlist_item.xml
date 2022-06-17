@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardElevation="@dimen/cardview_default_elevation"
-    app:cardCornerRadius="4dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_width="match_parent">
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/bg_rounded"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="@dimen/cardview_default_elevation">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,35 +18,38 @@
             android:id="@+id/txt_symbol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/onyx"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="BTC"
-            android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintStart_toStartOf="parent"/>
+            tools:text="BTC" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/txt_description"
-            tools:text="Bitcoin"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="@id/txt_symbol"
-            app:layout_constraintTop_toBottomOf="@id/txt_symbol"/>
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/onyx"
+            app:layout_constraintStart_toStartOf="@id/txt_symbol"
+            app:layout_constraintTop_toBottomOf="@id/txt_symbol"
+            tools:text="Bitcoin" />
+
+        <TextView
+            android:id="@+id/txt_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/onyx"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/txt_symbol"
-            android:id="@+id/txt_price"
-            tools:text="10USD"/>
+            tools:text="10USD" />
 
         <TextView
+            android:id="@+id/txt_percentage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txt_percentage"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/onyx"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_price"
-            android:layout_marginTop="8dp"
-            tools:text="2%"/>
+            tools:text="2%" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

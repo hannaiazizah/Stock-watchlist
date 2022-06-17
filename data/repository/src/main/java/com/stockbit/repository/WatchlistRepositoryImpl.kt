@@ -17,9 +17,8 @@ class WatchlistRepositoryImpl (
     private val watchlistService: WatchlistService
 ): WatchlistRepository {
 
-
     companion object {
-        const val NETWORK_PAGE_SIZE = 30
+        const val NETWORK_PAGE_SIZE = 50
     }
 
     override fun getWatchlist(): Flow<PagingData<Watchlist>> {
