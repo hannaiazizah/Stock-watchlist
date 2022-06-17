@@ -7,14 +7,28 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.stockbit.local.converter.Converters
 import com.stockbit.local.dao.ExampleDao
+import com.stockbit.local.dao.RemoteKeysDao
+import com.stockbit.local.dao.WatchlistDao
 import com.stockbit.model.ExampleModel
+import com.stockbit.model.RemoteKeys
+import com.stockbit.model.Watchlist
 
-@Database(entities = [ExampleModel::class], version = 1, exportSchema = false)
+@Database(
+    entities = [
+        ExampleModel::class,
+        Watchlist::class,
+        RemoteKeys::class
+    ],
+    version = 1,
+    exportSchema = false
+)
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase() {
 
     // DAO
     abstract fun exampleDao(): ExampleDao
+    abstract fun watchlistDao(): WatchlistDao
+    abstract fun remoteKeysDao(): RemoteKeysDao
 
     companion object {
 

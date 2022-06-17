@@ -14,6 +14,8 @@ dependencies {
     // KOIN
     implementation Libraries.koin
     implementation Libraries.koinViewModel
+    // PAGING
+    implementation Libraries.paging
     // TESTS
     testImplementation TestLibraries.junit
     testImplementation TestLibraries.mockk

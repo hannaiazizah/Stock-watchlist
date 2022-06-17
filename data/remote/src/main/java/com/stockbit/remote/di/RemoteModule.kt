@@ -1,7 +1,7 @@
 package com.stockbit.remote.di
 
 import com.stockbit.remote.ExampleDatasource
-import com.stockbit.remote.ExampleService
+import com.stockbit.remote.WatchlistService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -26,7 +26,7 @@ fun createRemoteModule(baseUrl: String) = module {
             .build()
     }
 
-    factory{ get<Retrofit>().create(ExampleService::class.java) }
+    factory{ get<Retrofit>().create(WatchlistService::class.java) }
 
     factory { ExampleDatasource(get()) }
 }
