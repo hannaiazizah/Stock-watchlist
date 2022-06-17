@@ -2,8 +2,9 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_main"
-    app:startDestination="@id/nav_login">
+    app:startDestination="@id/nav_watchlist">
 
     <include app:graph="@navigation/nav_login" />
+    <include app:graph="@navigation/nav_watchlist"/>
 
 </navigation>

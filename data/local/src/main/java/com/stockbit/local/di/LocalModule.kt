@@ -8,7 +8,7 @@ import org.koin.dsl.module
 private const val DATABASE = "DATABASE"
 
 val localModule = module {
-    single(named(DATABASE)) { AppDatabase.buildDatabase(androidContext()) }
+    single(named(DATABASE)) { AppDatabase.buildDatabase(get()) }
     factory { (get(named(DATABASE)) as AppDatabase).exampleDao() }
     factory { (get(named(DATABASE)) as AppDatabase).watchlistDao() }
     factory { (get(named(DATABASE)) as AppDatabase).remoteKeysDao() }

@@ -10,17 +10,9 @@ import com.stockbit.repository.mediator.WatchlistRemoteMediator
 import kotlinx.coroutines.Dispatchers
 import org.koin.dsl.module
 
-@ExperimentalPagingApi
 val repositoryModule = module {
     factory { AppDispatchers(Dispatchers.Main, Dispatchers.IO) }
     factory { ExampleRepositoryImpl(get(), get()) as ExampleRepository }
 
-    factory { WatchlistRepositoryImpl(get(), get()) as WatchlistRepository }
-    factory {
-        WatchlistRemoteMediator(
-            watchlistService = get(),
-            watchlistDao = get(),
-            remoteKeysDao = get()
-        )
-    }
+    single<WatchlistRepository> { WatchlistRepositoryImpl(get(), get(), get()) }
 }

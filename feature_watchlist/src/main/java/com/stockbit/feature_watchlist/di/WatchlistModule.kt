@@ -6,6 +6,6 @@ import org.koin.dsl.module
 
 val watchlistModule = module {
     viewModel {
-        WatchlistViewModel()
+        WatchlistViewModel(get(), get())
     }
 }

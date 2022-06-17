@@ -16,6 +16,9 @@ dependencies {
     implementation Libraries.koinViewModel
     // PAGING
     implementation Libraries.paging
+    // NETWORK
+    implementation Libraries.retrofit
+    implementation Libraries.retrofitGsonConverter
     // TESTS
     testImplementation TestLibraries.junit
     testImplementation TestLibraries.mockk

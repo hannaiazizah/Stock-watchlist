@@ -8,7 +8,7 @@ import com.stockbit.repository.di.repositoryModule
 import org.koin.dsl.module
 
 val appComponent= listOf(
-    createRemoteModule("https://api.github.com/"),
+    createRemoteModule("https://min-api.cryptocompare.com/data/"),
     repositoryModule,
     localModule,
     loginModule,
