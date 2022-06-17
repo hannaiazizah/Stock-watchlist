@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_watchlist"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/watchlist_flow"
     app:startDestination="@id/watchlistFragment">
 
     <fragment
         android:name="com.stockbit.feature_watchlist.presentation.WatchlistFragment"
-        android:id="@+id/watchlistFragment"/>
+        android:id="@+id/watchlistFragment"
+        tools:layout="@layout/watchlist_fragment"/>
 
 </navigation>

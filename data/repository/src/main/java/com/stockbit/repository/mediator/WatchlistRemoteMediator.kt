@@ -4,6 +4,9 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
+import com.stockbit.common.utils.toChange
+import com.stockbit.common.utils.toCurrency
+import com.stockbit.common.utils.toPercentage
 import com.stockbit.local.dao.RemoteKeysDao
 import com.stockbit.local.dao.WatchlistDao
 import com.stockbit.model.RemoteKeys
@@ -83,9 +86,9 @@ class WatchlistRemoteMediator(
                     id = it.coinInfo.id.toLong(),
                     symbol = it.coinInfo.symbol,
                     name = it.coinInfo.description,
-                    change = it.rawInfo.detailInfo.change.toString(),
-                    changepct = it.rawInfo.detailInfo.changePercentage.toString(),
-                    price = it.rawInfo.detailInfo.price.toString()
+                    change = it.rawInfo.detailInfo.change.toChange(),
+                    changepct = it.rawInfo.detailInfo.changePercentage.toPercentage(),
+                    price = it.rawInfo.detailInfo.price.toCurrency()
                 )
             }
 

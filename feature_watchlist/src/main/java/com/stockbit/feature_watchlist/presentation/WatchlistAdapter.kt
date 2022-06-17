@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.stockbit.common.utils.toCurrency
 import com.stockbit.feature_watchlist.R
 import com.stockbit.model.Watchlist
 

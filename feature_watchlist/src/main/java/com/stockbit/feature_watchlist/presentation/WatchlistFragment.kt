@@ -32,5 +32,9 @@ class WatchlistFragment: BaseFragment() {
         lifecycleScope.launchWhenResumed {
             viewModel.pagingDataFlow.collectLatest(adapter::submitData)
         }
+
+        binding.layoutRefresh.setOnRefreshListener{
+            adapter.refresh()
+        }
     }
 }

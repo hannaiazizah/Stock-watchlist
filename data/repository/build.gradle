@@ -4,6 +4,7 @@ apply plugin: 'kotlin-kapt'
 
 dependencies {
     // MODULES
+    implementation project(Modules.common)
     implementation project(Modules.remote)
     implementation project(Modules.local)
     api project(Modules.model)
