@@ -1,4 +1,4 @@
-# Stockbit Test App
+# Crypto Currency Test App
 
 ## Description
 
